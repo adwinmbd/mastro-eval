@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "dev": "deno run --watch=. --allow-read --allow-net --allow-env server.ts",
+    "make": "deno eval \"import 'mastro/generate';\""
+  },
+  "imports": {
+    "mastro": "jsr:@mastrojs/mastro@0.2.2"
+  },
+  "lock": false
+}
