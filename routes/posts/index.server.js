@@ -9,20 +9,21 @@ export const GET = async () => {
       <html>
         <head>
           <title>Posts</title>
-          <link rel="stylesheet" href="/site.css">
+          <link rel="stylesheet" href="/site.css" />
         </head>
         <body>
           <h1>Posts</h1>
-            ${posts.map((post) =>
-              html`
-                <p>
-                  <a href="${"/posts" + post.path.slice(11, -3)}">${post.meta.title}</a>
-                </p>
-              `
-            )}
+          ${posts.map((post) => {
+            const filename = post.path.split(/[\\/]/).pop();
+            const slug = filename.replace(/\.md$/, "");
+            return html`
+              <p>
+                <a href="${"/posts/" + slug}">${post.meta.title}</a>
+              </p>
+            `;
+          })}
         </body>
       </html>
-    `,
+    `
   );
 };
-
